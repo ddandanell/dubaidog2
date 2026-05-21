@@ -107,8 +107,8 @@ export default function HomePage() {
               <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#c9a96e]/15 ring-1 ring-[#c9a96e]/40">
                 <PawPrint className="h-4 w-4 text-[#c9a96e]" />
               </div>
-              <span className="font-['Playfair_Display'] text-lg sm:text-xl font-semibold tracking-wide text-white">
-                PawClearance
+              <span className="font-['Playfair_Display'] text-lg sm:text-xl font-semibold tracking-wide text-white leading-none">
+                Dubai Pet Relocation
               </span>
             </a>
 
@@ -519,13 +519,19 @@ export default function HomePage() {
                 <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#c9a96e]/15 ring-1 ring-[#c9a96e]/40">
                   <PawPrint className="h-4 w-4 text-[#c9a96e]" />
                 </div>
-                <span className="font-['Playfair_Display'] text-xl font-semibold tracking-wide text-white">
-                  PawClearance
+                <span className="font-['Playfair_Display'] text-xl font-semibold tracking-wide text-white leading-none">
+                  Dubai Pet Relocation
                 </span>
               </div>
               <p className="text-sm leading-relaxed max-w-xs font-light">
                 Discreet pet relocation logistics for Dubai and the world.
               </p>
+              <a
+                href="https://dubai-pet-relocation.ae"
+                className="inline-block mt-4 text-sm text-[#c9a96e] hover:text-white transition-colors tracking-wide"
+              >
+                dubai-pet-relocation.ae
+              </a>
             </div>
 
             <div>
@@ -554,7 +560,7 @@ export default function HomePage() {
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 text-xs text-white/60">
-            <div>© {new Date().getFullYear()} PawClearance. Dubai, UAE.</div>
+            <div>© {new Date().getFullYear()} Dubai Pet Relocation. Dubai, UAE.</div>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors">Privacy</a>
               <a href="#" className="hover:text-white transition-colors">Terms</a>
