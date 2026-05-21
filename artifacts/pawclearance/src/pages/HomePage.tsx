@@ -6,12 +6,32 @@ import {
   X,
   Plus,
   Minus,
-  PawPrint,
+  FileSearch,
+  FileCheck,
+  Box,
+  Stamp,
+  Plane,
+  Home,
+  ShieldCheck,
+  Award,
+  Clock,
+  Globe2,
+  Phone,
+  Mail,
+  MapPin,
+  CheckCircle2,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
+const WHATSAPP_NUMBER = "971501234567";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hello, I'd like to discuss a pet relocation case."
+)}`;
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
+  { label: "Routes", href: "#routes" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ];
@@ -39,19 +59,42 @@ const SERVICES = [
 ];
 
 const PROCESS = [
-  "Case review",
-  "Document audit",
-  "Crate & cargo",
-  "Permits",
-  "Flight & handling",
-  "Door-to-door",
+  { title: "Case review", icon: FileSearch },
+  { title: "Document audit", icon: FileCheck },
+  { title: "Crate & cargo", icon: Box },
+  { title: "Permits", icon: Stamp },
+  { title: "Flight & handling", icon: Plane },
+  { title: "Door-to-door", icon: Home },
 ];
 
 const ROUTES = [
-  { from: "Dubai", to: "United Kingdom" },
-  { from: "Dubai", to: "European Union" },
-  { from: "Dubai", to: "United States" },
-  { from: "Worldwide", to: "Dubai" },
+  { from: "Dubai", to: "United Kingdom", note: "DEFRA · ARC handling" },
+  { from: "Dubai", to: "European Union", note: "TRACES · EU certificates" },
+  { from: "Dubai", to: "United States", note: "CDC permits" },
+  { from: "Worldwide", to: "Dubai", note: "MOCCAE · DXB clearance" },
+];
+
+const PILLARS = [
+  {
+    icon: ShieldCheck,
+    title: "MOCCAE certified",
+    desc: "Fully accredited with UAE authorities.",
+  },
+  {
+    icon: Award,
+    title: "IATA-compliant",
+    desc: "Aircraft-approved crates and protocols.",
+  },
+  {
+    icon: Clock,
+    title: "24-hour response",
+    desc: "Every case reviewed within one day.",
+  },
+  {
+    icon: Globe2,
+    title: "Worldwide reach",
+    desc: "Established corridors on six continents.",
+  },
 ];
 
 const FAQS = [
@@ -72,6 +115,83 @@ const FAQS = [
     a: "Where airline embargoes and UAE regulations allow. We are direct about what is and is not possible before you commit.",
   },
 ];
+
+const FOOTER_LINKS = [
+  {
+    heading: "Services",
+    links: [
+      { label: "Into Dubai", href: "#services" },
+      { label: "Out of Dubai", href: "#services" },
+      { label: "Complex cases", href: "#services" },
+      { label: "Pricing estimate", href: "#pricing" },
+    ],
+  },
+  {
+    heading: "Routes",
+    links: [
+      { label: "Dubai → UK", href: "#routes" },
+      { label: "Dubai → EU", href: "#routes" },
+      { label: "Dubai → USA", href: "#routes" },
+      { label: "Worldwide → Dubai", href: "#routes" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "Our process", href: "#process" },
+      { label: "Why us", href: "#why-us" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Contact", href: "#contact" },
+    ],
+  },
+];
+
+function Logo({ tone = "gold" }: { tone?: "gold" | "white" }) {
+  const color = tone === "gold" ? "#c9a96e" : "#ffffff";
+  return (
+    <svg
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-9 w-9 sm:h-10 sm:w-10"
+      aria-hidden="true"
+    >
+      <circle cx="20" cy="20" r="19" stroke={color} strokeOpacity="0.4" />
+      <path
+        d="M 7 16 Q 20 4 33 16"
+        stroke={color}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeDasharray="1.5 2.5"
+      />
+      <circle cx="32" cy="15" r="1.2" fill={color} />
+      <g transform="translate(20 25)" fill={color}>
+        <ellipse cx="0" cy="2.5" rx="5.2" ry="4.2" />
+        <ellipse cx="-5.4" cy="-2.8" rx="1.7" ry="2" />
+        <ellipse cx="-2" cy="-5.3" rx="1.4" ry="1.7" />
+        <ellipse cx="2" cy="-5.3" rx="1.4" ry="1.7" />
+        <ellipse cx="5.4" cy="-2.8" rx="1.7" ry="2" />
+      </g>
+    </svg>
+  );
+}
+
+function Wordmark({ tone = "white" }: { tone?: "white" | "navy" }) {
+  return (
+    <div
+      className={`flex flex-col leading-none ${
+        tone === "white" ? "text-white" : "text-[#0d1f3c]"
+      }`}
+    >
+      <span className="font-['Playfair_Display'] text-base sm:text-lg font-semibold tracking-wide">
+        Dubai Pet Relocation
+      </span>
+      <span className="text-[9px] tracking-[0.3em] uppercase text-[#c9a96e] mt-1">
+        Premium Pet Logistics
+      </span>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -100,20 +220,17 @@ export default function HomePage() {
             ? "bg-[#0d1f3c]/95 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
         }`}
+        aria-label="Primary"
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex h-16 sm:h-20 items-center justify-between">
-            <a href="#" className="flex items-center gap-2.5 group">
-              <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#c9a96e]/15 ring-1 ring-[#c9a96e]/40">
-                <PawPrint className="h-4 w-4 text-[#c9a96e]" />
-              </div>
-              <span className="font-['Playfair_Display'] text-lg sm:text-xl font-semibold tracking-wide text-white leading-none">
-                Dubai Pet Relocation
-              </span>
+            <a href="#" className="flex items-center gap-3 group" aria-label="Dubai Pet Relocation — home">
+              <Logo tone="gold" />
+              <Wordmark tone="white" />
             </a>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex md:items-center md:gap-10">
+            <div className="hidden lg:flex lg:items-center lg:gap-8">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.label}
@@ -135,8 +252,9 @@ export default function HomePage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex items-center justify-center h-10 w-10 -mr-2 text-white"
-              aria-label="Toggle menu"
+              className="lg:hidden flex items-center justify-center h-10 w-10 -mr-2 text-white"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -145,25 +263,38 @@ export default function HomePage() {
 
         {/* Mobile menu drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#0d1f3c] border-t border-white/5">
+          <div className="lg:hidden bg-[#0d1f3c] border-t border-white/5">
             <div className="px-5 py-8 space-y-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block py-3 text-lg font-['Playfair_Display'] text-white border-b border-white/5"
+                  className="flex items-center justify-between py-3 text-lg font-['Playfair_Display'] text-white border-b border-white/5"
                 >
                   {link.label}
+                  <ArrowUpRight className="h-4 w-4 text-[#c9a96e]" />
                 </a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block mt-8 bg-[#c9a96e] text-[#0d1f3c] px-6 py-4 rounded-full font-semibold text-sm text-center"
-              >
-                Start Case Review
-              </a>
+              <div className="grid grid-cols-2 gap-3 pt-6">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 border border-white/20 text-white px-4 py-3.5 rounded-full font-semibold text-sm"
+                >
+                  <FaWhatsapp className="h-4 w-4 text-[#25D366]" />
+                  WhatsApp
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center bg-[#c9a96e] text-[#0d1f3c] px-4 py-3.5 rounded-full font-semibold text-sm"
+                >
+                  Start Case
+                </a>
+              </div>
             </div>
           </div>
         )}
@@ -174,14 +305,14 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <img
             src="/images/hero.png"
-            alt=""
+            alt="A calm German Shepherd ready for international travel"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c] via-[#0d1f3c]/70 to-[#0d1f3c]/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f3c]/80 via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl w-full px-5 sm:px-8 pb-16 sm:pb-24 pt-32">
+        <div className="relative mx-auto max-w-7xl w-full px-5 sm:px-8 pb-20 sm:pb-24 pt-32">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-6 sm:mb-8">
               <div className="h-px w-8 bg-[#c9a96e]" />
@@ -209,11 +340,13 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#services"
-                className="group inline-flex items-center justify-center gap-2 text-white px-2 sm:px-4 py-4 font-medium text-sm transition-all"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-sm px-7 py-4 rounded-full font-semibold text-sm transition-all"
               >
-                Explore services
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <FaWhatsapp className="h-4 w-4 text-[#25D366]" />
+                Chat on WhatsApp
               </a>
             </div>
           </div>
@@ -221,14 +354,14 @@ export default function HomePage() {
 
         {/* Bottom credential strip */}
         <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 backdrop-blur-sm bg-[#0d1f3c]/40 hidden lg:block">
-          <div className="mx-auto max-w-7xl px-8 py-5 flex items-center justify-between text-white/60 text-xs tracking-wide">
-            <span>MOCCAE accredited</span>
+          <div className="mx-auto max-w-7xl px-8 py-5 flex items-center justify-between text-white/70 text-xs tracking-wide">
+            <span className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#c9a96e]" /> MOCCAE accredited</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span>IATA-compliant transport</span>
+            <span className="flex items-center gap-2"><Award className="h-3.5 w-3.5 text-[#c9a96e]" /> IATA-compliant transport</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span>Door-to-door coordination</span>
+            <span className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-[#c9a96e]" /> Door-to-door coordination</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span>24-hour case response</span>
+            <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-[#c9a96e]" /> 24-hour case response</span>
           </div>
         </div>
       </section>
@@ -259,6 +392,13 @@ export default function HomePage() {
                 What we handle.
               </h2>
             </div>
+            <a
+              href="#contact"
+              className="hidden sm:inline-flex items-center gap-2 text-[#b87333] hover:text-[#0d1f3c] font-semibold text-sm transition-colors group"
+            >
+              Discuss your case
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
@@ -300,7 +440,10 @@ export default function HomePage() {
       </section>
 
       {/* ─────────── PROCESS ─────────── */}
-      <section id="process" className="py-24 sm:py-32 bg-[#f5f2ee] border-y border-black/5 scroll-mt-20">
+      <section
+        id="process"
+        className="py-24 sm:py-32 bg-[#f5f2ee] border-y border-black/5 scroll-mt-20"
+      >
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-2xl mb-12 sm:mb-16">
             <span className="text-[11px] tracking-[0.25em] uppercase text-[#b87333] font-medium">
@@ -312,19 +455,146 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-black/10 rounded-md overflow-hidden border border-black/10">
-            {PROCESS.map((step, i) => (
-              <div
-                key={step}
-                className="bg-[#f5f2ee] p-6 sm:p-8 hover:bg-white transition-colors aspect-square flex flex-col justify-between"
+            {PROCESS.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={step.title}
+                  className="bg-[#f5f2ee] p-6 sm:p-8 hover:bg-white transition-colors aspect-square flex flex-col justify-between"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="font-['Playfair_Display'] text-2xl sm:text-3xl text-[#c9a96e] font-medium">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <Icon className="h-5 w-5 text-[#0d1f3c]/70" strokeWidth={1.5} />
+                  </div>
+                  <div className="text-sm sm:text-base font-medium text-[#0d1f3c] leading-snug">
+                    {step.title}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────── REUNION BAND CTA ─────────── */}
+      <section className="relative overflow-hidden bg-[#0d1f3c]">
+        <div className="absolute inset-0">
+          <img
+            src="/images/reunion-airport.png"
+            alt="A traveler reunited with their dog at the airport"
+            className="h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f3c] via-[#0d1f3c]/80 to-[#0d1f3c]/20" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
+          <div className="max-w-xl text-white">
+            <span className="text-[11px] tracking-[0.25em] uppercase text-[#c9a96e] font-medium">
+              The reunion
+            </span>
+            <h2 className="mt-4 font-['Playfair_Display'] text-3xl sm:text-5xl font-medium leading-tight tracking-tight">
+              The only outcome that matters.
+            </h2>
+            <p className="mt-6 text-white/70 text-base sm:text-lg font-light leading-relaxed">
+              Every detail of our service exists to make the moment at the arrivals hall feel effortless.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 bg-[#c9a96e] hover:bg-[#d4b478] text-[#0d1f3c] px-7 py-4 rounded-full font-semibold text-sm transition-all group"
               >
-                <div className="font-['Playfair_Display'] text-3xl text-[#c9a96e] font-medium">
-                  {String(i + 1).padStart(2, "0")}
+                Begin your case
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-sm px-7 py-4 rounded-full font-semibold text-sm transition-all"
+              >
+                <FaWhatsapp className="h-4 w-4 text-[#25D366]" />
+                Quick chat
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────── WHY US ─────────── */}
+      <section id="why-us" className="py-24 sm:py-32 bg-white scroll-mt-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <span className="text-[11px] tracking-[0.25em] uppercase text-[#b87333] font-medium">
+              Why us
+            </span>
+            <h2 className="mt-3 font-['Playfair_Display'] text-3xl sm:text-5xl font-medium text-[#0d1f3c] tracking-tight">
+              The standard, set quietly.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {PILLARS.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.title}
+                  className="p-7 sm:p-8 bg-[#f5f2ee] rounded-md border border-black/5 hover:border-[#c9a96e]/50 transition-colors"
+                >
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-white border border-[#c9a96e]/30 mb-6">
+                    <Icon className="h-5 w-5 text-[#b87333]" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-['Playfair_Display'] text-xl text-[#0d1f3c] font-medium mb-2">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-[#1c2531]/75 leading-relaxed font-light">
+                    {p.desc}
+                  </p>
                 </div>
-                <div className="text-sm sm:text-base font-medium text-[#0d1f3c] leading-snug">
-                  {step}
-                </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────── PORTRAIT FEATURE BAND ─────────── */}
+      <section className="bg-[#0d1f3c] text-white">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2">
+          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[500px] overflow-hidden">
+            <img
+              src="/images/dog-golden-portrait.png"
+              alt="A Golden Retriever at rest before travel"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <div className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+            <span className="text-[11px] tracking-[0.25em] uppercase text-[#c9a96e] font-medium">
+              Our promise
+            </span>
+            <h2 className="mt-4 font-['Playfair_Display'] text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
+              Calm pets. Clean paperwork. Clear timelines.
+            </h2>
+            <ul className="mt-8 space-y-4">
+              {[
+                "Dedicated case handler from day one",
+                "Document audit before any booking",
+                "Direct line to airlines and customs",
+                "Transparent costs, agreed up front",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-white/80">
+                  <CheckCircle2 className="h-5 w-5 text-[#c9a96e] mt-0.5 shrink-0" />
+                  <span className="text-base">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#contact"
+              className="mt-10 inline-flex w-fit items-center justify-center gap-2 bg-[#c9a96e] hover:bg-[#d4b478] text-[#0d1f3c] px-7 py-4 rounded-full font-semibold text-sm transition-all group"
+            >
+              Start a case review
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
       </section>
@@ -334,9 +604,9 @@ export default function HomePage() {
         id="pricing"
         className="relative py-24 sm:py-32 bg-[#0d1f3c] text-white overflow-hidden scroll-mt-20"
       >
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-25">
           <img
-            src="/images/cta-bg.png"
+            src="/images/dubai-skyline.png"
             alt=""
             className="h-full w-full object-cover"
           />
@@ -357,18 +627,29 @@ export default function HomePage() {
             Every case begins with a complimentary review and a clear cost breakdown before anything moves.
           </p>
 
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 mt-10 bg-[#c9a96e] hover:bg-[#d4b478] text-[#0d1f3c] px-7 py-4 rounded-full font-semibold text-sm transition-all"
-          >
-            Request your estimate
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <a
+              href="#contact"
+              className="group inline-flex items-center justify-center gap-2 bg-[#c9a96e] hover:bg-[#d4b478] text-[#0d1f3c] px-7 py-4 rounded-full font-semibold text-sm transition-all"
+            >
+              Request your estimate
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-sm px-7 py-4 rounded-full font-semibold text-sm transition-all"
+            >
+              <FaWhatsapp className="h-4 w-4 text-[#25D366]" />
+              Ask on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ─────────── ROUTES ─────────── */}
-      <section className="py-24 sm:py-32 bg-white">
+      <section id="routes" className="py-24 sm:py-32 bg-white scroll-mt-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-2xl mb-12 sm:mb-16">
             <span className="text-[11px] tracking-[0.25em] uppercase text-[#b87333] font-medium">
@@ -384,17 +665,19 @@ export default function HomePage() {
               <a
                 key={`${r.from}-${r.to}`}
                 href="#contact"
-                className="group bg-white p-8 sm:p-10 transition-colors hover:bg-[#f5f2ee] flex flex-col justify-between min-h-[200px]"
+                className="group bg-white p-8 sm:p-10 transition-colors hover:bg-[#f5f2ee] flex flex-col justify-between min-h-[220px]"
               >
-                <div>
+                <Plane className="h-5 w-5 text-[#c9a96e] -rotate-45" strokeWidth={1.5} />
+                <div className="mt-6">
                   <div className="text-xs text-[#8a9ab0] font-medium tracking-wide">
                     {r.from}
                   </div>
                   <div className="font-['Playfair_Display'] text-2xl sm:text-3xl text-[#0d1f3c] font-medium mt-1 leading-tight">
                     → {r.to}
                   </div>
+                  <div className="mt-3 text-xs text-[#8a9ab0]">{r.note}</div>
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-[#8a9ab0] group-hover:text-[#c9a96e] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all mt-8" />
+                <ArrowUpRight className="h-5 w-5 text-[#8a9ab0] group-hover:text-[#c9a96e] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all mt-6 self-end" />
               </a>
             ))}
           </div>
@@ -402,7 +685,10 @@ export default function HomePage() {
       </section>
 
       {/* ─────────── FAQ ─────────── */}
-      <section className="py-24 sm:py-32 bg-[#f5f2ee] border-t border-black/5">
+      <section
+        id="faq"
+        className="py-24 sm:py-32 bg-[#f5f2ee] border-t border-black/5 scroll-mt-20"
+      >
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <span className="text-[11px] tracking-[0.25em] uppercase text-[#b87333] font-medium">
@@ -448,14 +734,30 @@ export default function HomePage() {
               );
             })}
           </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#b87333] hover:text-[#0d1f3c] font-semibold text-sm transition-colors group"
+            >
+              <FaWhatsapp className="h-4 w-4" />
+              Have a different question? Message us
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ─────────── CONTACT ─────────── */}
-      <section id="contact" className="relative py-24 sm:py-32 bg-[#0d1f3c] text-white overflow-hidden scroll-mt-20">
+      <section
+        id="contact"
+        className="relative py-24 sm:py-32 bg-[#0d1f3c] text-white overflow-hidden scroll-mt-20"
+      >
         <div className="absolute inset-0 opacity-15">
           <img
-            src="/images/cta-bg.png"
+            src="/images/dubai-skyline.png"
             alt=""
             className="h-full w-full object-cover"
           />
@@ -499,75 +801,134 @@ export default function HomePage() {
               />
             </div>
 
-            <button
-              type="submit"
-              className="group mt-8 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#c9a96e] hover:bg-[#d4b478] text-[#0d1f3c] px-8 py-4 rounded-full font-semibold text-sm transition-all"
-            >
-              Submit case
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8">
+              <button
+                type="submit"
+                className="group flex-1 inline-flex items-center justify-center gap-2 bg-[#c9a96e] hover:bg-[#d4b478] text-[#0d1f3c] px-8 py-4 rounded-full font-semibold text-sm transition-all"
+              >
+                Submit case
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </button>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-sm px-8 py-4 rounded-full font-semibold text-sm transition-all"
+              >
+                <FaWhatsapp className="h-4 w-4 text-[#25D366]" />
+                Or message on WhatsApp
+              </a>
+            </div>
           </form>
+
+          <div className="mt-16 pt-10 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-white/70">
+            <a href="tel:+971501234567" className="flex items-center gap-3 hover:text-white transition-colors">
+              <Phone className="h-4 w-4 text-[#c9a96e]" />
+              +971 50 123 4567
+            </a>
+            <a href="mailto:hello@dubai-pet-relocation.ae" className="flex items-center gap-3 hover:text-white transition-colors">
+              <Mail className="h-4 w-4 text-[#c9a96e]" />
+              hello@dubai-pet-relocation.ae
+            </a>
+            <div className="flex items-center gap-3">
+              <MapPin className="h-4 w-4 text-[#c9a96e]" />
+              Dubai, United Arab Emirates
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ─────────── FOOTER ─────────── */}
-      <footer className="bg-[#0a1830] text-white/75 pt-20 pb-10">
+      <footer className="bg-[#0a1830] text-white/75 pt-20 pb-32 lg:pb-10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-12 mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-10 sm:gap-12 mb-16">
             <div className="col-span-2">
-              <div className="flex items-center gap-2.5 mb-5">
-                <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#c9a96e]/15 ring-1 ring-[#c9a96e]/40">
-                  <PawPrint className="h-4 w-4 text-[#c9a96e]" />
-                </div>
-                <span className="font-['Playfair_Display'] text-xl font-semibold tracking-wide text-white leading-none">
-                  Dubai Pet Relocation
-                </span>
-              </div>
-              <p className="text-sm leading-relaxed max-w-xs font-light">
-                Discreet pet relocation logistics for Dubai and the world.
+              <a href="#" className="flex items-center gap-3 mb-5">
+                <Logo tone="gold" />
+                <Wordmark tone="white" />
+              </a>
+              <p className="text-sm leading-relaxed max-w-xs font-light text-white/70">
+                Discreet pet relocation logistics for Dubai and the world. Document-first. Outcome-obsessed.
               </p>
               <a
                 href="https://dubai-pet-relocation.ae"
-                className="inline-block mt-4 text-sm text-[#c9a96e] hover:text-white transition-colors tracking-wide"
+                className="inline-block mt-5 text-sm text-[#c9a96e] hover:text-white transition-colors tracking-wide"
               >
                 dubai-pet-relocation.ae
               </a>
+
+              <div className="mt-8 space-y-3 text-sm">
+                <a href="tel:+971501234567" className="flex items-center gap-3 hover:text-white transition-colors">
+                  <Phone className="h-4 w-4 text-[#c9a96e]" />
+                  +971 50 123 4567
+                </a>
+                <a href="mailto:hello@dubai-pet-relocation.ae" className="flex items-center gap-3 hover:text-white transition-colors">
+                  <Mail className="h-4 w-4 text-[#c9a96e]" />
+                  hello@dubai-pet-relocation.ae
+                </a>
+              </div>
             </div>
 
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/70 mb-5">
-                Services
+            {FOOTER_LINKS.map((col) => (
+              <div key={col.heading}>
+                <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/70 mb-5">
+                  {col.heading}
+                </div>
+                <ul className="space-y-3 text-sm">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <a href={link.href} className="hover:text-white transition-colors">
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3 text-sm">
-                <li><a href="#services" className="hover:text-white transition-colors">Into Dubai</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Out of Dubai</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Complex cases</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Worldwide routes</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/70 mb-5">
-                Company
-              </div>
-              <ul className="space-y-3 text-sm">
-                <li><a href="#process" className="hover:text-white transition-colors">Process</a></li>
-                <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
+            ))}
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 text-xs text-white/60">
             <div>© {new Date().getFullYear()} Dubai Pet Relocation. Dubai, UAE.</div>
             <div className="flex gap-6">
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
               <a href="#" className="hover:text-white transition-colors">Privacy</a>
               <a href="#" className="hover:text-white transition-colors">Terms</a>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* ─────────── FLOATING WHATSAPP ─────────── */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className="fixed bottom-24 lg:bottom-6 right-5 sm:right-6 z-40 flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 hover:scale-105 hover:shadow-xl transition-all"
+      >
+        <FaWhatsapp className="h-7 w-7" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
+      </a>
+
+      {/* ─────────── STICKY MOBILE CTA ─────────── */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-[#0d1f3c]/95 backdrop-blur-md border-t border-white/10 px-4 py-3">
+        <div className="flex gap-2">
+          <a
+            href="tel:+971501234567"
+            aria-label="Call us"
+            className="flex items-center justify-center h-12 w-12 rounded-full border border-white/20 text-white shrink-0"
+          >
+            <Phone className="h-4 w-4" />
+          </a>
+          <a
+            href="#contact"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-[#c9a96e] text-[#0d1f3c] px-4 py-3 rounded-full font-semibold text-sm"
+          >
+            Start Case Review
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

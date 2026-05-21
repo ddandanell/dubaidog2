@@ -30,3 +30,33 @@ id = "1obokHQUUqMa0M85dPYds"
 uri = "file://artifacts/mockup-sandbox/public/images/cta-bg.png"
 type = "image"
 title = "cta bg"
+
+[[generated]]
+id = "ggacUmtWPI74Rcr3HlORv"
+uri = "file://artifacts/pawclearance/public/images/dog-golden-portrait.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "29XeAMuPv_AInxAM-9DOI"
+uri = "file://artifacts/pawclearance/public/images/dog-crate-airport.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "2DA8VnxyKvsUfw4R4WJrx"
+uri = "file://artifacts/pawclearance/public/images/reunion-airport.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "hUVY9LBzYUea08Inanauy"
+uri = "file://artifacts/pawclearance/public/images/dubai-skyline.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "aufVrXEEQ6t1MP7EqLOYw"
+uri = "file://artifacts/pawclearance/public/images/dog-small-portrait.png"
+type = "image"
+title = "generated_image"
