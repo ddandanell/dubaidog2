@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm --filter @workspace/pawclearance run build",
+  "outputDirectory": "artifacts/pawclearance/dist",
+  "devCommand": "pnpm --filter @workspace/pawclearance run dev",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "staging": true
+    }
+  }
+}
