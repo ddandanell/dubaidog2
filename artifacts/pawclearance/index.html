@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <meta name="theme-color" content="#0d1f3c" />
 
-    <title>Dubai Pet Relocation — Premium Pet Logistics to & from the UAE</title>
-    <meta name="description" content="Dubai's premium pet relocation specialists. Discreet, document-first import and export of dogs and cats — MOCCAE permits, IATA-approved crates, airport handling, and door-to-door coordination worldwide." />
-    <meta name="keywords" content="Dubai pet relocation, UAE pet import, UAE pet export, MOCCAE permit, pet shipping Dubai, dog relocation Dubai, cat relocation Dubai, pet cargo Dubai, IATA pet crate, pet customs clearance UAE" />
+    <title>Pet Relocation Dubai | Dog & Cat Transport UAE | MOCCAE Certified</title>
+    <meta name="description" content="Professional pet relocation Dubai services. MOCCAE certified pet transport specialists for dog import Dubai, cat export UAE, and worldwide pet shipping. Document-first, door-to-door pet logistics." />
+    <meta name="keywords" content="pet relocation dubai, pet transport dubai, dog import dubai, cat export dubai, uae pet import, dubai pet shipping, moccae permit, pet clearance dubai, pet cargo dubai, animal relocation uae, dog transport uae, cat relocation dubai, pet logistics dubai, iata pet crate dubai" />
     <meta name="author" content="Dubai Pet Relocation" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://dubai-pet-relocation.ae/" />
@@ -37,18 +37,152 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Dubai Pet Relocation",
-      "url": "https://dubai-pet-relocation.ae",
-      "logo": "https://dubai-pet-relocation.ae/favicon.svg",
-      "description": "Premium pet relocation logistics for dogs and cats moving to or from Dubai, UAE.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressCountry": "AE"
-      },
-      "areaServed": "Worldwide",
-      "serviceType": "Pet relocation"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://dubai-pet-relocation.ae/#organization",
+          "name": "Dubai Pet Relocation",
+          "url": "https://dubai-pet-relocation.ae",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://dubai-pet-relocation.ae/favicon.svg"
+          },
+          "description": "Premium pet relocation logistics for dogs and cats moving to or from Dubai, UAE. MOCCAE accredited pet transport specialists.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE"
+          },
+          "areaServed": "Worldwide",
+          "telephone": "+971501234567",
+          "email": "hello@dubai-pet-relocation.ae",
+          "sameAs": [
+            "https://wa.me/971501234567"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://dubai-pet-relocation.ae/#business",
+          "name": "Dubai Pet Relocation",
+          "image": "https://dubai-pet-relocation.ae/images/hero.png",
+          "url": "https://dubai-pet-relocation.ae",
+          "telephone": "+971501234567",
+          "email": "hello@dubai-pet-relocation.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 25.2048,
+            "longitude": 55.2708
+          },
+          "priceRange": "$$",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://dubai-pet-relocation.ae/#service-import",
+          "serviceType": "Pet Import to Dubai",
+          "provider": {
+            "@id": "https://dubai-pet-relocation.ae/#organization"
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": "Dubai, UAE"
+          },
+          "description": "Professional pet import services to Dubai including MOCCAE permits, customs clearance, and airport handling for dogs and cats."
+        },
+        {
+          "@type": "Service",
+          "@id": "https://dubai-pet-relocation.ae/#service-export",
+          "serviceType": "Pet Export from Dubai",
+          "provider": {
+            "@id": "https://dubai-pet-relocation.ae/#organization"
+          },
+          "areaServed": "Worldwide",
+          "description": "Worldwide pet export from Dubai with vet-supervised care, documentation, and door-to-door coordination."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://dubai-pet-relocation.ae/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can pets travel in the cabin to Dubai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The UAE requires all pets to enter as manifested cargo. We handle the full cargo booking and clearance process."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does pet relocation to Dubai take to plan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Typically four to twelve weeks. The rabies titer test imposes a mandatory waiting period, so we recommend contacting us as early as possible."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my pet's documents are wrong on arrival in Dubai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our document-first protocol is designed to prevent exactly that. If issues arise mid-transit, our team intervenes directly with airline and customs authorities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you handle restricted or high-risk dog breeds for Dubai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Where airline embargoes and UAE regulations allow. We are direct about what is and is not possible before you commit."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dubai-pet-relocation.ae/#website",
+          "url": "https://dubai-pet-relocation.ae",
+          "name": "Dubai Pet Relocation",
+          "description": "Premium pet transport and relocation services for Dubai and worldwide destinations.",
+          "publisher": {
+            "@id": "https://dubai-pet-relocation.ae/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dubai-pet-relocation.ae/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://dubai-pet-relocation.ae/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://dubai-pet-relocation.ae/"
+            }
+          ]
+        }
+      ]
     }
     </script>
   </head>
