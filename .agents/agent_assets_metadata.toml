@@ -60,3 +60,21 @@ id = "aufVrXEEQ6t1MP7EqLOYw"
 uri = "file://artifacts/pawclearance/public/images/dog-small-portrait.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "dB5FYmbTiG_4uZHB2PJbG"
+uri = "file://artifacts/pawclearance/public/images/service-export.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "ggZSYqC50dJlyTyc4aC9F"
+uri = "file://artifacts/pawclearance/public/images/hero.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "1SfLk4c7bpDihzo6tcLC7"
+uri = "file://artifacts/pawclearance/public/images/vet-care.png"
+type = "image"
+title = "generated_image"

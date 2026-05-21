@@ -8,12 +8,12 @@ import {
   Minus,
   FileSearch,
   FileCheck,
-  Box,
+  Stethoscope,
   Stamp,
   Plane,
   Home,
   ShieldCheck,
-  Award,
+  HeartHandshake,
   Clock,
   Globe2,
   Phone,
@@ -46,13 +46,13 @@ const SERVICES = [
   {
     eyebrow: "02 / Outbound",
     title: "Out of Dubai",
-    tagline: "Worldwide export coordination.",
+    tagline: "Worldwide relocation, vet-supervised.",
     image: "/images/service-export.png",
   },
   {
-    eyebrow: "03 / Urgent",
+    eyebrow: "03 / Specialist",
     title: "Complex Cases",
-    tagline: "Restricted breeds. Short notice.",
+    tagline: "Restricted breeds. Sensitive timelines.",
     image: "/images/service-emergency.png",
     accent: true,
   },
@@ -61,7 +61,7 @@ const SERVICES = [
 const PROCESS = [
   { title: "Case review", icon: FileSearch },
   { title: "Document audit", icon: FileCheck },
-  { title: "Crate & cargo", icon: Box },
+  { title: "Vet & wellness", icon: Stethoscope },
   { title: "Permits", icon: Stamp },
   { title: "Flight & handling", icon: Plane },
   { title: "Door-to-door", icon: Home },
@@ -81,9 +81,9 @@ const PILLARS = [
     desc: "Fully accredited with UAE authorities.",
   },
   {
-    icon: Award,
-    title: "IATA-compliant",
-    desc: "Aircraft-approved crates and protocols.",
+    icon: Stethoscope,
+    title: "Veterinary network",
+    desc: "Trusted clinics for every check and certificate.",
   },
   {
     icon: Clock,
@@ -91,9 +91,9 @@ const PILLARS = [
     desc: "Every case reviewed within one day.",
   },
   {
-    icon: Globe2,
-    title: "Worldwide reach",
-    desc: "Established corridors on six continents.",
+    icon: HeartHandshake,
+    title: "One dedicated handler",
+    desc: "A single point of contact from first call to homecoming.",
   },
 ];
 
@@ -305,7 +305,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <img
             src="/images/hero.png"
-            alt="A calm German Shepherd ready for international travel"
+            alt="A calm well-cared-for dog with a professional handler"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c] via-[#0d1f3c]/70 to-[#0d1f3c]/30" />
@@ -357,9 +357,9 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-8 py-5 flex items-center justify-between text-white/70 text-xs tracking-wide">
             <span className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-[#c9a96e]" /> MOCCAE accredited</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span className="flex items-center gap-2"><Award className="h-3.5 w-3.5 text-[#c9a96e]" /> IATA-compliant transport</span>
+            <span className="flex items-center gap-2"><Stethoscope className="h-3.5 w-3.5 text-[#c9a96e]" /> Veterinary partners</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-[#c9a96e]" /> Door-to-door coordination</span>
+            <span className="flex items-center gap-2"><HeartHandshake className="h-3.5 w-3.5 text-[#c9a96e]" /> One dedicated handler</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-[#c9a96e]" /> 24-hour case response</span>
           </div>
@@ -563,8 +563,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2">
           <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[500px] overflow-hidden">
             <img
-              src="/images/dog-golden-portrait.png"
-              alt="A Golden Retriever at rest before travel"
+              src="/images/vet-care.png"
+              alt="A veterinarian gently examining a dog before relocation"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
@@ -573,14 +573,14 @@ export default function HomePage() {
               Our promise
             </span>
             <h2 className="mt-4 font-['Playfair_Display'] text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
-              Calm pets. Clean paperwork. Clear timelines.
+              Cared for, end to end.
             </h2>
             <ul className="mt-8 space-y-4">
               {[
-                "Dedicated case handler from day one",
+                "A dedicated handler from day one",
+                "Vet partners for every check and certificate",
                 "Document audit before any booking",
                 "Direct line to airlines and customs",
-                "Transparent costs, agreed up front",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-white/80">
                   <CheckCircle2 className="h-5 w-5 text-[#c9a96e] mt-0.5 shrink-0" />
