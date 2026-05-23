@@ -1,14 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd artifacts/pawclearance && pnpm install && pnpm run build",
-  "outputDirectory": "artifacts/pawclearance/dist",
-  "devCommand": "cd artifacts/pawclearance && pnpm run dev",
+  "buildCommand": "pnpm -F pawclearance run build",
+  "outputDirectory": "artifacts/pawclearance/dist/public",
+  "devCommand": "PORT=5173 BASE_PATH=/ pnpm -F pawclearance run dev",
   "installCommand": "pnpm install --frozen-lockfile",
-  "framework": null,
+  "framework": "vite",
   "git": {
     "deploymentEnabled": {
-      "main": true,
-      "staging": true
+      "main": true
     }
   }
 }
