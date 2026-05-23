@@ -13,3 +13,7 @@ build
 coverage
 .nyc_output
 *.tsbuildinfo
+.local
+.agents
+attached_assets
+artifacts/pawclearance/dist
