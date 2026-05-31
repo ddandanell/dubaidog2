@@ -30,6 +30,9 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
+    <!-- Preload LCP hero image for faster Largest Contentful Paint -->
+    <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -64,7 +67,7 @@
           "@type": "LocalBusiness",
           "@id": "https://dubai-pet-relocation.ae/#business",
           "name": "Dubai Pet Relocation",
-          "image": "https://dubai-pet-relocation.ae/images/hero.png",
+          "image": "https://dubai-pet-relocation.ae/images/hero.webp",
           "url": "https://dubai-pet-relocation.ae",
           "telephone": "+971501234567",
           "email": "hello@dubai-pet-relocation.ae",

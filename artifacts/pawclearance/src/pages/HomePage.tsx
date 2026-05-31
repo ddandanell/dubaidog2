@@ -41,19 +41,19 @@ const SERVICES = [
     eyebrow: "01 / Inbound",
     title: "Pet Import Dubai",
     tagline: "MOCCAE permits, customs, clearance.",
-    image: "/images/service-import.png",
+    image: "/images/service-import.webp",
   },
   {
     eyebrow: "02 / Outbound",
     title: "Pet Export from Dubai",
     tagline: "Worldwide pet relocation, vet-supervised.",
-    image: "/images/service-export.png",
+    image: "/images/service-export.webp",
   },
   {
     eyebrow: "03 / Specialist",
     title: "Complex Pet Cases",
     tagline: "Restricted breeds. Sensitive timelines.",
-    image: "/images/service-emergency.png",
+    image: "/images/service-emergency.webp",
     accent: true,
   },
 ];
@@ -307,9 +307,13 @@ export default function HomePage() {
       <section className="relative min-h-[520px] sm:min-h-[640px] h-[100svh] max-h-[900px] flex items-end overflow-hidden bg-[#0d1f3c]">
         <div className="absolute inset-0">
           <img
-            src="/images/hero.png"
+            src="/images/hero.webp"
             alt="Professional pet relocation handler with calm dog at Dubai airport"
             className="h-full w-full object-cover"
+            fetchPriority="high"
+            decoding="async"
+            width={1920}
+            height={1080}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c] via-[#0d1f3c]/70 to-[#0d1f3c]/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f3c]/80 via-transparent to-transparent" />
@@ -415,6 +419,8 @@ export default function HomePage() {
                   src={s.image}
                   alt={`${s.title} - Professional pet relocation service in Dubai`}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c] via-[#0d1f3c]/40 to-transparent" />
                 {s.accent && (
@@ -485,9 +491,11 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-[#0d1f3c]">
         <div className="absolute inset-0">
           <img
-            src="/images/reunion-airport.png"
+            src="/images/reunion-airport.webp"
             alt="A traveler reunited with their dog at the airport"
             className="h-full w-full object-cover opacity-40"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d1f3c] via-[#0d1f3c]/80 to-[#0d1f3c]/20" />
         </div>
@@ -566,9 +574,11 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2">
           <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[500px] overflow-hidden">
             <img
-              src="/images/vet-care.png"
+              src="/images/vet-care.webp"
               alt="A veterinarian gently examining a dog before relocation"
               className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
@@ -609,9 +619,11 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 opacity-25">
           <img
-            src="/images/dubai-skyline.png"
+            src="/images/dubai-skyline.webp"
             alt=""
             className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0d1f3c]/60 via-[#0d1f3c]/80 to-[#0d1f3c]" />
         </div>
@@ -760,9 +772,11 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 opacity-15">
           <img
-            src="/images/dubai-skyline.png"
+            src="/images/dubai-skyline.webp"
             alt=""
             className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
