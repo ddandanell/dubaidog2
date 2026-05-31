@@ -15,7 +15,6 @@ import {
   ShieldCheck,
   HeartHandshake,
   Clock,
-  Globe2,
   Phone,
   Mail,
   MapPin,
